@@ -1,0 +1,35 @@
+{
+  "name": "solid-iconify",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/solid-iconify.umd.cjs",
+  "module": "./dist/solid-iconify.js",
+  "exports": {
+    ".": {
+      "import": "./dist/solid-iconify.js",
+      "require": "./dist/solid-iconify.umd.cjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.7.8",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.9",
+    "vite-plugin-dts": "^1.4.1",
+    "vite-plugin-solid": "^2.3.0"
+  },
+  "dependencies": {
+    "solid-js": "^1.4.8"
+  }
+}
