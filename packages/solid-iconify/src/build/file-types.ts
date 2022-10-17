@@ -2,7 +2,7 @@ import type { IconContent } from "./types";
 
 function cjsTemplate(icon: IconContent): string {
   return /* javascript */ `
-  module.exports.${icon.fileName} = function ${icon.fileName}(props) {
+  module.exports.${icon.name} = function ${icon.name}(props) {
       return IconTemplate({
         a: ${JSON.stringify(icon.svgAttribs)},
         c: '${icon.contents}'
@@ -12,7 +12,7 @@ function cjsTemplate(icon: IconContent): string {
 
 function moduleTemplate(icon: IconContent) {
   return /* javascript */ `
-  export function ${icon.fileName} (props) {
+  export function ${icon.name} (props) {
       return IconTemplate({
         a: ${JSON.stringify(icon.svgAttribs)},
         c: '${icon.contents}'
@@ -21,7 +21,7 @@ function moduleTemplate(icon: IconContent) {
 }
 
 function typesTemplate(icon: IconContent) {
-  return /* javascript */ `\nexport declare const ${icon.fileName}: IconTypes;`;
+  return /* javascript */ `\nexport declare const ${icon.name}: IconTypes;`;
 }
 
 export const fileTypes = [

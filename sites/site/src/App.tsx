@@ -1,13 +1,20 @@
-import type { Component } from "solid-js";
-import { add, Counter } from "solid-iconify";
+import type { Component } from "solid-js"
+import { Twemoji1stPlaceMedal } from "solid-iconify/twemoji"
 
 const App: Component = () => {
-  console.log(add(1, 2));
   return (
-    <div>
-      <Counter />
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        "justify-content": "center",
+        "align-items": "center",
+      }}
+    >
+      <Twemoji1stPlaceMedal size={100} />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

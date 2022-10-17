@@ -9,7 +9,7 @@
     "site:build": "pnpm --filter=site build",
     "build": "pnpm --filter=solid-iconify build",
     "build:lib": "pnpm --filter=solid-iconify build:lib",
-    "dev": "pnpm --filter=solid-iconify dev"
+    "dev": "pnpm --filter=site dev"
   },
   "keywords": [],
   "author": "Xhofe",

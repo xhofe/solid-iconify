@@ -2,20 +2,20 @@ lockfileVersion: 5.4
 
 importers:
 
+  .:
+    specifiers: {}
+
   packages/solid-iconify:
     specifiers:
       '@iconify/json': ^2.1.123
       '@iconify/types': ^2.0.0
       '@types/node': ^18.7.8
       chalk: ^5.1.2
-      solid-js: ^1.4.8
       tsx: ^3.10.1
       typescript: ^4.7.4
       vite: ^3.0.9
       vite-plugin-dts: ^1.4.1
       vite-plugin-solid: ^2.3.0
-    dependencies:
-      solid-js: 1.4.8
     devDependencies:
       '@iconify/json': 2.1.123
       '@iconify/types': 2.0.0
@@ -25,17 +25,17 @@ importers:
       typescript: 4.7.4
       vite: 3.0.9
       vite-plugin-dts: 1.4.1_vite@3.0.9
-      vite-plugin-solid: 2.3.0_solid-js@1.4.8+vite@3.0.9
+      vite-plugin-solid: 2.3.0_vite@3.0.9
 
   sites/site:
     specifiers:
-      solid-iconify: workspace:*
+      solid-iconify: workspace:../../packages/solid-iconify/dist
       solid-js: ^1.4.8
       typescript: ^4.7.4
       vite: ^3.0.9
       vite-plugin-solid: ^2.3.0
     dependencies:
-      solid-iconify: link:../../packages/solid-iconify
+      solid-iconify: link:../../packages/solid-iconify/dist
       solid-js: 1.4.8
     devDependencies:
       typescript: 4.7.4
@@ -1506,6 +1506,16 @@ packages:
   /solid-js/1.4.8:
     resolution: {integrity: sha512-XErZdnnYYXF7OwGSUAPcua2y5/ELB/c53zFCpWiEGqxTNoH1iQghzI8EsHJXk06sNn+Z/TGhb8bPDNNGSgimag==}
 
+  /solid-refresh/0.4.1:
+    resolution: {integrity: sha512-v3tD/OXQcUyXLrWjPW1dXZyeWwP7/+GQNs8YTL09GBq+5FguA6IejJWUvJDrLIA4M0ho9/5zK2e9n+uy+4488g==}
+    peerDependencies:
+      solid-js: ^1.3
+    dependencies:
+      '@babel/generator': 7.18.12
+      '@babel/helper-module-imports': 7.18.6
+      '@babel/types': 7.18.10
+    dev: true
+
   /solid-refresh/0.4.1_solid-js@1.4.8:
     resolution: {integrity: sha512-v3tD/OXQcUyXLrWjPW1dXZyeWwP7/+GQNs8YTL09GBq+5FguA6IejJWUvJDrLIA4M0ho9/5zK2e9n+uy+4488g==}
     peerDependencies:
@@ -1673,6 +1683,22 @@ packages:
       merge-anything: 5.0.2
       solid-js: 1.4.8
       solid-refresh: 0.4.1_solid-js@1.4.8
+      vite: 3.0.9
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /vite-plugin-solid/2.3.0_vite@3.0.9:
+    resolution: {integrity: sha512-N2sa54C3UZC2nN5vpj5o6YP+XdIAZW6n6xv8OasxNAcAJPFeZT7EOVvumL0V4c8hBz1yuYniMWdESY8807fVSg==}
+    peerDependencies:
+      solid-js: ^1.3.17
+      vite: ^3.0.0
+    dependencies:
+      '@babel/core': 7.18.10
+      '@babel/preset-typescript': 7.18.6_@babel+core@7.18.10
+      babel-preset-solid: 1.4.8_@babel+core@7.18.10
+      merge-anything: 5.0.2
+      solid-refresh: 0.4.1
       vite: 3.0.9
     transitivePeerDependencies:
       - supports-color

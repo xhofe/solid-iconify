@@ -1,7 +1,8 @@
+import { IconifyInfo } from "@iconify/types"
 export interface IconContent {
   contents: string
   svgAttribs: SVGAttribs
-  fileName: string
+  name: string
 }
 
 export interface SVGAttribs {
@@ -9,33 +10,16 @@ export interface SVGAttribs {
   height?: string
 }
 
-export type Collection = {
-  name: string
-  total: number
-  author: {
-    name: string
-    url: string
-  }
-  license: {
-    title: string
-    spdx: string
-    url: string
-  }
-  samples: Array<string>
-  height: number
-  category: string
-  palette: boolean
-}
-
-export type Collections = {
-  [key: string]: Collection
-}
-
 export interface PackageJSONExport {
-  [key: string]: PackageJSONItem;
+  [key: string]: PackageJSONItem
 }
 
 interface PackageJSONItem {
-  [key: string]: unknown;
+  [key: string]: unknown
 }
 
+export type CollectionInfo = IconifyInfo
+
+export type Collections = {
+  [key: string]: CollectionInfo
+}

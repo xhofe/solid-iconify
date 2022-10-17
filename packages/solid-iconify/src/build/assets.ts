@@ -14,7 +14,7 @@ import {
 } from "./constants"
 import { fileTypes } from "./file-types"
 import { getFileByPath } from "./utils"
-import { Collection, Collections, PackageJSONExport } from "./types"
+import { CollectionInfo, Collections, PackageJSONExport } from "./types"
 
 const execAsync = promisify(exec)
 
@@ -33,7 +33,7 @@ const copyIncludedFiles = () => {
 
 function getPackageExports(
   previousValue: PackageJSONExport,
-  current: [string, Collection]
+  current: [string, CollectionInfo]
 ): PackageJSONExport {
   const exportsPayload = {
     import: `./${current[0]}/index.js`,
@@ -42,7 +42,7 @@ function getPackageExports(
   return { ...previousValue, [`./${current[0]}`]: exportsPayload }
 }
 
-function writePackageJson(collections: [string, Collection][]) {
+function writePackageJson(collections: [string, CollectionInfo][]) {
   const packageJson = JSON.parse(getFileByPath(`${ROOT_PATH}/package.json`))
 
   delete packageJson.devDependencies
@@ -60,7 +60,7 @@ function writePackageJson(collections: [string, Collection][]) {
   )
 }
 
-export const buildAssets = async (collections: [string, Collection][]) => {
+export const buildAssets = async (collections: [string, CollectionInfo][]) => {
   await buildLib()
   copyIncludedFiles()
   writePackageJson(collections)

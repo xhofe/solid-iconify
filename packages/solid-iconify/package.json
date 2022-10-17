@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "",
   "type": "module",
-  "files": [
-    "dist"
-  ],
   "main": "./lib/index.cjs",
   "module": "./lib/index.js",
   "exports": {
@@ -14,7 +11,7 @@
       "require": "./lib/index.cjs"
     }
   },
-  "types": "./dist/index.d.ts",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -34,7 +31,7 @@
     "vite-plugin-dts": "^1.4.1",
     "vite-plugin-solid": "^2.3.0"
   },
-  "dependencies": {
+  "peerDependencies": {
     "solid-js": "^1.4.8"
   }
 }
