@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "solid-js": "^1.4.8",
-    "solid-iconify": "workspace:*"
+    "solid-iconify": "workspace:../../packages/solid-iconify/dist"
   }
 }

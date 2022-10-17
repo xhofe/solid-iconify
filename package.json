@@ -8,6 +8,7 @@
     "site": "pnpm --filter=site dev",
     "site:build": "pnpm --filter=site build",
     "build": "pnpm --filter=solid-iconify build",
+    "build:lib": "pnpm --filter=solid-iconify build:lib",
     "dev": "pnpm --filter=solid-iconify dev"
   },
   "keywords": [],

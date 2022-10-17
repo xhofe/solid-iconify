@@ -6,24 +6,29 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/solid-iconify.umd.cjs",
-  "module": "./dist/solid-iconify.js",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
   "exports": {
     ".": {
-      "import": "./dist/solid-iconify.js",
-      "require": "./dist/solid-iconify.umd.cjs"
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs"
     }
   },
   "types": "./dist/index.d.ts",
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build:lib": "vite build",
+    "build": "tsx src/build/index.ts",
     "serve": "vite preview"
   },
   "license": "MIT",
   "devDependencies": {
+    "@iconify/json": "^2.1.123",
+    "@iconify/types": "^2.0.0",
     "@types/node": "^18.7.8",
+    "chalk": "^5.1.2",
+    "tsx": "^3.10.1",
     "typescript": "^4.7.4",
     "vite": "^3.0.9",
     "vite-plugin-dts": "^1.4.1",
