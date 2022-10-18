@@ -1,7 +1,14 @@
 {
   "name": "solid-iconify",
   "version": "0.0.0",
-  "description": "",
+  "description": "😈 A icon component set for SolidJS using Iconify.",
+  "keywords": [
+    "solidjs",
+    "icons",
+    "iconify",
+    "svg",
+    "solid"
+  ],
   "type": "module",
   "main": "./lib/index.cjs",
   "module": "./lib/index.js",

@@ -15,7 +15,7 @@
     "vite-plugin-solid": "^2.3.0"
   },
   "dependencies": {
-    "solid-iconify": "^0.0.0-alpha.0",
+    "solid-iconify": "0.0.0-alpha.0",
     "solid-js": "^1.4.8"
   }
 }

@@ -4,7 +4,7 @@
 
 # solid-iconify
 
-☘ A solidjs component of progress bar, the custom colors are supported. Inspired by [vue3-progress](https://github.com/tangyouge/vue3-progress) but for [Solidjs](https://solidjs.com).
+😈 A icon component set for SolidJS using Iconify.
 
 [![release](https://github.com/Xhofe/solid-iconify/actions/workflows/release.yml/badge.svg)](https://github.com/Xhofe/solid-iconify/actions/workflows/release.yml)
 [![npm](https://img.shields.io/npm/dm/solid-iconify.svg)](https://www.npmjs.com/package/solid-iconify)
@@ -12,28 +12,46 @@
 [![license](https://img.shields.io/github/license/Xhofe/solid-iconify.svg)](https://github.com/Xhofe/solid-iconify/blob/main/LICENSE)
 [![sponsor](https://img.shields.io/badge/%24-sponsor-F87171.svg)](https://sp.nn.ci/)
 
-## Installation
+## ✨ Features
+
+- [100+ Icon packs](#-included-icons-pack) totally ready to use.
+- Tree shakeable: What you take is what you get.
+- [Customizable](#%EF%B8%8F-configuration) - receive props to extend their usefulness.
+- [Reactivity](https://www.youtube.com/watch?v=J70HXl1KhWE), take advantage of SolidJS to react to changes in props.
+- [Just import and declare](#usage) in your JSX to work out-the-box
+- First class TypeScript support
+
+## 📦 Installation
 
 ```bash
 pnpm add solid-iconify
 ```
 
-## Demo
+## 🌻 Demo
 
 <https://xhofe.github.io/solid-iconify/>
 
-## Usage
+## 💻 Usage
 
 ```tsx
-import { Component } from "solid-iconify";
+import { Twemoji1stPlaceMedal } from "solid-iconify/twemoji"
 
 const App = () => {
-  const [shown, setShown] = createSignal(true);
   return (
     <div>
-      <Component />
+      <Twemoji1stPlaceMedal size={100} />
     </div>
   );
 };
 export default App;
 ```
+
+## 🫡 Related projects
+- [iconify](https://github.com/iconify/iconify)
+- [solid-icons](https://github.com/x64Bits/solid-icons)
+
+## 📝 License
+
+MIT
+
+- Icons are taken from the other projects so please check each project licences accordingly.
