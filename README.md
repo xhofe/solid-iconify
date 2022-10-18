@@ -14,7 +14,7 @@
 
 ## ✨ Features
 
-- [100+ Icon packs](#-included-icons-pack) totally ready to use.
+- [100+ Icon packs](https://iconify.design/) totally ready to use.
 - Tree shakeable: What you take is what you get.
 - [Customizable](#%EF%B8%8F-configuration) - receive props to extend their usefulness.
 - [Reactivity](https://www.youtube.com/watch?v=J70HXl1KhWE), take advantage of SolidJS to react to changes in props.

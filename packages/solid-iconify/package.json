@@ -9,16 +9,28 @@
     "svg",
     "solid"
   ],
+  "author": {
+    "name": "Noah Hsu",
+    "email": "i@nn.ci",
+    "url": "https://nn.ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xhofe/solid-iconify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Xhofe/solid-iconify/issues"
+  },
   "type": "module",
   "main": "./lib/index.cjs",
   "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "exports": {
     ".": {
       "import": "./lib/index.js",
       "require": "./lib/index.cjs"
     }
   },
-  "types": "./lib/index.d.ts",
   "scripts": {
     "start": "vite",
     "dev": "vite",
