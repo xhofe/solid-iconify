@@ -14,7 +14,7 @@ export default defineConfig({
     lib:
       process.env.NODE_ENV === "production"
         ? {
-            entry: resolve(__dirname, "src/lib/index.tsx"),
+            entry: resolve(__dirname, "lib/index.tsx"),
             // name: "SolidLib",
             fileName: "index",
             formats: ["es", "cjs"],

@@ -16,7 +16,7 @@
     "start": "vite",
     "dev": "vite",
     "build:lib": "vite build",
-    "build": "tsx src/build/index.ts",
+    "build": "tsx build/index.ts",
     "serve": "vite preview"
   },
   "license": "MIT",
