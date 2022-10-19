@@ -21,3 +21,8 @@ export const ROOT_EXPORT = {
 };
 
 export const includedFiles = ["../../LICENSE", "../../README.md"];
+
+export const supportedArgs = {
+  ISOLATE: "--isolate",
+  WEB: "--web",
+};

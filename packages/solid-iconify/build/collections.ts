@@ -45,6 +45,16 @@ function writeEachPack(cname: string, collection: CollectionInfo) {
         })
       )
     })
+
+    Object.entries(icons.aliases ?? {}).forEach(([iName, alias]) => {
+      fs.appendFileSync(
+        fileName,
+        type.aliasTemplate({
+          name: getIconName(cname, iName),
+          alias: getIconName(cname, alias.parent),
+        })
+      )
+    })
   }
 
   log(

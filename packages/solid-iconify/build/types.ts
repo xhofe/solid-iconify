@@ -5,6 +5,11 @@ export interface IconContent {
   name: string
 }
 
+export interface IconAlias {
+  name: string
+  alias: string
+}
+
 export interface SVGAttribs {
   viewBox?: string
   height?: string
