@@ -1,5 +1,5 @@
 <p>
-  <img width="100%" src="https://assets.solidjs.com/banner?project=solid-iconify" alt="solid-named-router">
+  <img width="100%" src="https://assets.solidjs.com/banner?project=solid-iconify" alt="solid-iconify">
 </p>
 
 # solid-iconify
