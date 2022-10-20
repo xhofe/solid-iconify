@@ -24,6 +24,8 @@ function writeEachPack(
     fs.appendFileSync(fileName, type.header)
 
     Object.entries(icons.icons).forEach(([iName, icon]) => {
+      let width = icon.width ?? icons.width
+      let height = icon.height ?? icons.height
       fs.appendFileSync(
         fileName,
         type.template({
@@ -31,7 +33,7 @@ function writeEachPack(
           name: getIconName(convertedName, iName),
           svgAttribs: {
             height: icon.height?.toString(),
-            viewBox: `0 0 ${icons.width} ${icons.height}`,
+            viewBox: `0 0 ${width} ${height}`,
           },
         })
       )
