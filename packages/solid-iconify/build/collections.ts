@@ -2,6 +2,7 @@ import { IconifyJSON } from "@iconify/types"
 import chalk from "chalk"
 import fs from "fs"
 import path from "path"
+import { getIconData, iconToSVG } from "@iconify/utils"
 import { DIST_PATH, log } from "./constants"
 import { fileTypes } from "./file-types"
 import { CollectionInfo } from "./types"
@@ -24,17 +25,25 @@ function writeEachPack(
     fs.appendFileSync(fileName, type.header)
 
     Object.entries(icons.icons).forEach(([iName, icon]) => {
-      let width = icon.width ?? icons.width
-      let height = icon.height ?? icons.height
+      if (icon.hidden) {
+        return
+      }
+      const iconData = getIconData(icons, iName)
+      if (!iconData) {
+        log(
+          chalk.red(`Icon ${iName} not found in ${cName}`) + chalk.yellow("!")
+        )
+        return
+      }
+      const renderData = iconToSVG(iconData, {
+        height: "auto",
+      })
       fs.appendFileSync(
         fileName,
         type.template({
-          contents: icon.body,
+          contents: renderData.body,
           name: getIconName(convertedName, iName),
-          svgAttribs: {
-            height: icon.height?.toString(),
-            viewBox: `0 0 ${width} ${height}`,
-          },
+          svgAttribs: renderData.attributes,
         })
       )
     })

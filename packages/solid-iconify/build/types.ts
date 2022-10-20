@@ -13,6 +13,7 @@ export interface IconAlias {
 export interface SVGAttribs {
   viewBox?: string
   height?: string
+  width?: string
 }
 
 export interface PackageJSONExport {

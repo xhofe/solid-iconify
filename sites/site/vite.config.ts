@@ -1,13 +1,14 @@
-import { defineConfig } from 'vite';
-import solidPlugin from 'vite-plugin-solid';
+import { defineConfig } from "vite"
+import solidPlugin from "vite-plugin-solid"
+import Unocss from "unocss/vite"
 
 export default defineConfig({
-  plugins: [solidPlugin()],
+  plugins: [solidPlugin(), Unocss()],
   server: {
     port: 3000,
   },
-  base: "/solid-iconify",
+  base: "/",
   build: {
-    target: 'esnext',
+    target: "esnext",
   },
-});
+})
