@@ -28,3 +28,7 @@ export type CollectionInfo = IconifyInfo
 export type Collections = {
   [key: string]: CollectionInfo
 }
+
+export interface Collection extends IconifyInfo {
+  icons: string[]
+}

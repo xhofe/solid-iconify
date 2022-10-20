@@ -1,6 +1,18 @@
 import fs from "fs"
+import path from "path"
 
 export const getFileByPath = (path: string) => fs.readFileSync(path, "utf8")
+
+export const mkdirSync = (dirname: string) => {
+  if (fs.existsSync(dirname)) {
+    return true
+  } else {
+    if (mkdirSync(path.dirname(dirname))) {
+      fs.mkdirSync(dirname)
+      return true
+    }
+  }
+}
 
 export const firstUpperCase = (str: string) => {
   if (!str || str.length === 0) {
@@ -23,4 +35,10 @@ export const convertCollectionName = (name: string) => {
   //   ans = name.slice(0, 2)
   // }
   return firstUpperCase(ans)
+}
+
+export const getIconName = (cName: string, iName: string) => {
+  return `${cName}-${iName}`.replace(/-(\w)/g, (all, letter) => {
+    return letter.toUpperCase()
+  })
 }

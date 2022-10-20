@@ -6,6 +6,7 @@ import { buildCollections } from "./collections"
 import { Collections } from "./types"
 import { getFileByPath } from "./utils"
 import { DIST_PATH, supportedArgs } from "./constants"
+import { buildWeb } from "./web"
 
 function getArgs() {
   const args = arg({
@@ -15,12 +16,12 @@ function getArgs() {
 
   return {
     isIsolate: args[supportedArgs.ISOLATE],
-    buildWeb: args[supportedArgs.WEB],
+    isBuildWeb: args[supportedArgs.WEB],
   }
 }
 
 const main = async () => {
-  const { isIsolate, buildWeb } = getArgs()
+  const { isIsolate, isBuildWeb } = getArgs()
 
   fs.rmSync(DIST_PATH, { recursive: true, force: true })
   const collectionsObj: Collections = JSON.parse(
@@ -29,8 +30,12 @@ const main = async () => {
   const collections = Object.entries(collectionsObj).filter(([name, _]) => {
     return typeof isIsolate === "string" ? name.includes(isIsolate) : true
   })
-  await buildAssets(collections)
-  buildCollections(collections)
+  if (isBuildWeb) {
+    buildWeb(collections)
+  } else {
+    await buildAssets(collections)
+    buildCollections(collections)
+  }
 }
 
 main()

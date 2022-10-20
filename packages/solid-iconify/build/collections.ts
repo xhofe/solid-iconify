@@ -5,13 +5,7 @@ import path from "path"
 import { DIST_PATH, log } from "./constants"
 import { fileTypes } from "./file-types"
 import { CollectionInfo } from "./types"
-import { convertCollectionName, getFileByPath } from "./utils"
-
-const getIconName = (cName: string, iName: string) => {
-  return `${cName}-${iName}`.replace(/-(\w)/g, (all, letter) => {
-    return letter.toUpperCase()
-  })
-}
+import { convertCollectionName, getFileByPath, getIconName } from "./utils"
 
 function writeEachPack(
   cName: string,
@@ -21,17 +15,13 @@ function writeEachPack(
   const packFolder = `${DIST_PATH}/${cName}`
 
   fs.mkdirSync(packFolder)
-
+  const icons: IconifyJSON = JSON.parse(
+    getFileByPath(path.resolve(`node_modules/@iconify/json/json/${cName}.json`))
+  )
   for (let index = 0; index < fileTypes.length; index++) {
     const type = fileTypes[index]
     const fileName = `${packFolder}/${type.fileName}`
-
     fs.appendFileSync(fileName, type.header)
-    const icons: IconifyJSON = JSON.parse(
-      getFileByPath(
-        path.resolve(`node_modules/@iconify/json/json/${cName}.json`)
-      )
-    )
 
     Object.entries(icons.icons).forEach(([iName, icon]) => {
       fs.appendFileSync(
