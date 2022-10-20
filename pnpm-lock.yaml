@@ -36,7 +36,7 @@ importers:
       '@iconify/types': ^2.0.0
       '@solidjs/router': ^0.5.0
       '@unocss/reset': ^0.45.30
-      solid-iconify: ^0.0.1
+      solid-iconify: ^0.0.2
       solid-js: ^1.4.8
       typescript: ^4.7.4
       unocss: ^0.45.30
@@ -46,7 +46,7 @@ importers:
       '@iconify/types': 2.0.0
       '@solidjs/router': 0.5.0_solid-js@1.4.8
       '@unocss/reset': 0.45.30
-      solid-iconify: 0.0.1_solid-js@1.4.8
+      solid-iconify: 0.0.2_solid-js@1.4.8
       solid-js: 1.4.8
     devDependencies:
       typescript: 4.7.4
@@ -2016,8 +2016,8 @@ packages:
       totalist: 3.0.0
     dev: true
 
-  /solid-iconify/0.0.1_solid-js@1.4.8:
-    resolution: {integrity: sha512-c+lEMrGfQGVdp5xYou5OusqIkQqk9zYAjMiit3dZQ2+xP+7ktYNucuVRlHl36qRNp5ll+HYPaYFSgV7QkqT34w==}
+  /solid-iconify/0.0.2_solid-js@1.4.8:
+    resolution: {integrity: sha512-w7NJYgNUgWb69sLbUiHvsdJEnmGabpFVExiPqCo1/5wtEclnaJMx0DMhOa24DoUFAbi670MhiyCcFot4AO5vVg==}
     peerDependencies:
       solid-js: ^1.4.8
     dependencies:

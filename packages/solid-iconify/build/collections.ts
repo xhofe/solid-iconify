@@ -55,7 +55,8 @@ function writeEachPack(
 
     Object.entries(icons.aliases ?? {}).forEach(([iName, alias]) => {
       const name = getIconName(convertedName, iName)
-      if (nameSet.has(name)) {
+      const aliasName = getIconName(convertedName, alias.parent)
+      if (nameSet.has(name) || !nameSet.has(aliasName)) {
         return
       }
       nameSet.add(name)
@@ -63,7 +64,7 @@ function writeEachPack(
         fileName,
         type.aliasTemplate({
           name: name,
-          alias: getIconName(convertedName, alias.parent),
+          alias: aliasName,
         })
       )
     })
