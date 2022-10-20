@@ -25,9 +25,10 @@ const buildPack = (
   const aliases = Object.entries(icons.aliases ?? {}).map(([iName, alias]) => {
     return getIconName(convertedName, iName)
   })
+  const nameSet = new Set([...iconNames, ...aliases])
   return {
     ...collection,
-    icons: [...iconNames, ...aliases],
+    icons: Array.from(nameSet),
   }
 }
 

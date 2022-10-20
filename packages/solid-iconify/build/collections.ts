@@ -23,11 +23,16 @@ function writeEachPack(
     const type = fileTypes[index]
     const fileName = `${packFolder}/${type.fileName}`
     fs.appendFileSync(fileName, type.header)
-
+    const nameSet = new Set<string>()
     Object.entries(icons.icons).forEach(([iName, icon]) => {
       if (icon.hidden) {
         return
       }
+      const name = getIconName(convertedName, iName)
+      if (nameSet.has(name)) {
+        return
+      }
+      nameSet.add(name)
       const iconData = getIconData(icons, iName)
       if (!iconData) {
         log(
@@ -42,17 +47,22 @@ function writeEachPack(
         fileName,
         type.template({
           contents: renderData.body,
-          name: getIconName(convertedName, iName),
+          name: name,
           svgAttribs: renderData.attributes,
         })
       )
     })
 
     Object.entries(icons.aliases ?? {}).forEach(([iName, alias]) => {
+      const name = getIconName(convertedName, iName)
+      if (nameSet.has(name)) {
+        return
+      }
+      nameSet.add(name)
       fs.appendFileSync(
         fileName,
         type.aliasTemplate({
-          name: getIconName(convertedName, iName),
+          name: name,
           alias: getIconName(convertedName, alias.parent),
         })
       )
