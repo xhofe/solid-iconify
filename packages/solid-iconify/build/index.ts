@@ -22,8 +22,6 @@ function getArgs() {
 
 const main = async () => {
   const { isIsolate, isBuildWeb } = getArgs()
-
-  fs.rmSync(DIST_PATH, { recursive: true, force: true })
   const collectionsObj: Collections = JSON.parse(
     getFileByPath(path.resolve(`node_modules/@iconify/json/collections.json`))
   )
@@ -33,6 +31,7 @@ const main = async () => {
   if (isBuildWeb) {
     buildWeb(collections)
   } else {
+    fs.rmSync(DIST_PATH, { recursive: true, force: true })
     await buildAssets(collections)
     buildCollections(collections)
   }
