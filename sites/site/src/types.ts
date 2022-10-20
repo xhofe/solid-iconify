@@ -1,5 +1,6 @@
-import { IconifyInfo } from "@iconify/types";
+import { IconifyInfo } from "@iconify/types"
 
-export interface Collection extends IconifyInfo {
+export interface CollectionType extends IconifyInfo {
   icons: string[]
+  dir: string
 }

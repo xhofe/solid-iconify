@@ -3,13 +3,14 @@ import chalk from "chalk"
 import path from "path"
 import fs from "fs"
 import { DIST_PATH, log } from "./constants"
-import { CollectionInfo, Collection } from "./types"
+import { CollectionInfo, Collection, SVGAttribs } from "./types"
 import {
   convertCollectionName,
   getFileByPath,
   getIconName,
   mkdirSync,
 } from "./utils"
+import { getIconData, iconToSVG } from "@iconify/utils"
 
 const buildPack = (
   cName: string,
@@ -19,16 +20,50 @@ const buildPack = (
   const icons: IconifyJSON = JSON.parse(
     getFileByPath(path.resolve(`node_modules/@iconify/json/json/${cName}.json`))
   )
-  const iconNames = Object.entries(icons.icons).map(([iName]) => {
-    return getIconName(convertedName, iName)
+  const nameSet = new Set<string>()
+  const Icons: {
+    [key: string]:
+      | {
+          body: string
+          attribs: SVGAttribs
+        }
+      | {
+          parent: string
+        }
+  } = {}
+  Object.entries(icons.icons).map(([iName]) => {
+    const name = getIconName(convertedName, iName)
+    if (nameSet.has(name)) {
+      return
+    }
+    nameSet.add(name)
+    const iconData = getIconData(icons, iName)
+    if (!iconData) {
+      log(chalk.red(`Icon ${iName} not found in ${cName}`) + chalk.yellow("!"))
+      return
+    }
+    const renderData = iconToSVG(iconData, {
+      height: "auto",
+    })
+    Icons[name] = {
+      body: renderData.body,
+      attribs: renderData.attributes,
+    }
   })
-  const aliases = Object.entries(icons.aliases ?? {}).map(([iName, alias]) => {
-    return getIconName(convertedName, iName)
+  Object.entries(icons.aliases ?? {}).map(([iName, alias]) => {
+    const name = getIconName(convertedName, iName)
+    const aliasName = getIconName(convertedName, alias.parent)
+    if (nameSet.has(name) || !nameSet.has(aliasName)) {
+      return
+    }
+    Icons[name] = {
+      parent: aliasName,
+    }
   })
-  const nameSet = new Set([...iconNames, ...aliases])
   return {
+    dir: cName,
     ...collection,
-    icons: Array.from(nameSet),
+    icons: Icons,
   }
 }
 

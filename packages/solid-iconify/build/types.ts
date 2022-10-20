@@ -31,5 +31,15 @@ export type Collections = {
 }
 
 export interface Collection extends IconifyInfo {
-  icons: string[]
+  icons: {
+    [key: string]:
+      | {
+          body: string
+          attribs: SVGAttribs
+        }
+      | {
+          parent: string
+        }
+  }
+  dir: string
 }

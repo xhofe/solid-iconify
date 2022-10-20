@@ -7,7 +7,19 @@
     <link rel="shortcut icon" type="image/ico" href="/src/assets/favicon.ico" />
     <title>Solid Iconify</title>
   </head>
-  <body>
+  <body dragging bg-white dark:bg-dark text-gray-700 dark:text-gray-200>
+    <style>
+      html {
+        scrollbar-gutter: auto;
+      }
+      html,
+      body,
+      #root {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script src="/src/main.tsx" type="module"></script>
