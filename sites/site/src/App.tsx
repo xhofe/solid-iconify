@@ -1,5 +1,9 @@
 import type { Component } from "solid-js"
 import { Twemoji1stPlaceMedal } from "solid-iconify/twemoji"
+import {
+  FluentAccessibility16Regular,
+  FluentAddCircle32Filled,
+} from "solid-iconify/fluent"
 
 const App: Component = () => {
   return (
@@ -12,7 +16,27 @@ const App: Component = () => {
         "align-items": "center",
       }}
     >
-      <Twemoji1stPlaceMedal size={100} />
+      <div
+        style={{
+          border: "1px solid black",
+        }}
+      >
+        <Twemoji1stPlaceMedal size={100} />
+      </div>
+      <div
+        style={{
+          border: "1px solid black",
+        }}
+      >
+        <FluentAccessibility16Regular size={100} />
+      </div>
+      <div
+        style={{
+          border: "1px solid black",
+        }}
+      >
+        <FluentAddCircle32Filled size={100} />
+      </div>
     </div>
   )
 }
