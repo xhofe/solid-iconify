@@ -1,15 +1,24 @@
-import { IconProps, IconTypes } from "solid-iconify"
-import { lazy, splitProps } from "solid-js"
-import { Dynamic } from "solid-js/web"
+import { splitProps } from "solid-js"
+import "iconify-icon"
 
-export interface LocalIconProps extends IconProps {
+export interface IconProps {
   dir: string
   icon: string
+  size?: string | number
 }
-export const Icon = (props: LocalIconProps) => {
-  const [local, others] = splitProps(props, ["dir", "icon"])
-  const icon: Promise<{ default: IconTypes }> = import(
-    `solid-iconify/${local.dir}`
-  ).then((icons) => ({ default: icons[local.icon] }))
-  return <Dynamic component={lazy(() => icon)} {...others} />
+export const Icon = (props: IconProps) => {
+  const size = () => {
+    if (typeof props.size === "number") {
+      return props.size + "px"
+    }
+    return props.size
+  }
+  return (
+    // @ts-ignore
+    <iconify-icon
+      icon={props.dir + ":" + props.icon}
+      style={`font-size: ${size()}`}
+    // @ts-ignore
+    ></iconify-icon>
+  )
 }

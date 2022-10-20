@@ -20,14 +20,14 @@ const Collections = () => {
     <For each={Array.from(map.entries())}>
       {([category, collections]) => (
         <div>
-          <h2 text-lg c-gray-5>
+          <h2 text-xl c-gray-5 p="2">
             {category}
           </h2>
           <div
             grid
             gap="2"
             style={{
-              "grid-template-columns": "repeat(auto-fill, minmax(300px, 1fr))",
+              "grid-template-columns": "repeat(auto-fill, minmax(240px, 1fr))",
             }}
           >
             <For each={collections}>
