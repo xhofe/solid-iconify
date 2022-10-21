@@ -1,22 +1,22 @@
-import type { JSX } from "solid-js";
+import type { JSX } from "solid-js"
 
 export interface IconTree {
-  a: JSX.SvgSVGAttributes<SVGSVGElement>;
-  c: string;
+  a: JSX.SvgSVGAttributes<SVGSVGElement>
+  c: string
 }
 
 export interface IconProps extends JSX.SvgSVGAttributes<SVGSVGElement> {
-  size?: string | number;
-  color?: string;
-  title?: string;
-  style?: JSX.CSSProperties;
+  size?: string | number
+  color?: string
+  title?: string
+  style?: JSX.CSSProperties
 }
 
 export interface IconBaseProps extends IconProps {
-  src: IconTree;
+  src: IconTree
 }
 
-export declare type IconTypes = (props: IconProps) => JSX.Element;
+export declare type IconTypes = (props: IconProps) => JSX.Element
 
 export function IconTemplate(iconSrc: IconTree, props: IconProps): JSX.Element {
   return (
@@ -30,6 +30,7 @@ export function IconTemplate(iconSrc: IconTree, props: IconProps): JSX.Element {
         color: props.color,
       }}
       {...iconSrc.a}
+      viewBox={iconSrc.a.viewBox}
       {...props}
       height={props.size || "1em"}
       width={props.size || "1em"}
@@ -38,5 +39,5 @@ export function IconTemplate(iconSrc: IconTree, props: IconProps): JSX.Element {
     >
       {props.title && <title>{props.title}</title>}
     </svg>
-  );
+  )
 }
