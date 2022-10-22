@@ -27,7 +27,7 @@
 pnpm add solid-iconify
 ```
 
-## 🌻 Demo
+## 📝 Documentation
 
 <https://xhofe.github.io/solid-iconify/>
 
