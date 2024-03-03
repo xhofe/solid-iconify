@@ -23,6 +23,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Checkout web
+        uses: actions/checkout@v2
+        with:
+          repository: 'xhofe/solid-iconify-web'
+          token: ${{ secrets.MY_TOKEN }}
+          path: 'web'
+
       - uses: pnpm/action-setup@v3
         name: Install pnpm
         id: pnpm-install
@@ -32,12 +39,19 @@ jobs:
 
       - name: Build
         run: |
-          pnpm build
-          pnpm i
-          pnpm site:build
+          pnpm build --web
+          mv packages/solid-iconify/dist/web.json ./web/src/
+          cd web
+          git config user.name "xhofe"
+          git config user.email "i@nn.ci"
+          git add .
+          git commit -m "deps: update web.json for ${{ github.sha }}"
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload dist files
+        uses: ad-m/github-push-action@master
         with:
-          personal_token: ${{ secrets.MY_TOKEN }}
-          publish_dir: sites/site/dist
+          github_token: ${{ secrets.MY_TOKEN }}
+          branch: main
+          directory: web
+          repository: xhofe/solid-iconify-web
+          # force: true
