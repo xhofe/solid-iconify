@@ -10,17 +10,17 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^4.9.5",
-    "unocss": "^0.45.30",
-    "vite": "^3.2.8",
+    "typescript": "^5.3.3",
+    "unocss": "^0.58.5",
+    "vite": "^5.1.4",
     "vite-plugin-solid": "^2.10.1"
   },
   "dependencies": {
     "@iconify/types": "^2.0.0",
-    "@solidjs/router": "^0.5.1",
-    "@unocss/reset": "^0.45.30",
-    "iconify-icon": "^1.0.8",
-    "solid-iconify": "^0.0.3",
+    "@solidjs/router": "^0.12.4",
+    "@unocss/reset": "^0.58.5",
+    "iconify-icon": "^2.0.0",
+    "solid-iconify": "^0.0.4",
     "solid-js": "^1.8.15"
   }
 }
